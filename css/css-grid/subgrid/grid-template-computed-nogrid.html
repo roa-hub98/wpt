@@ -48,5 +48,19 @@ test_computed_value("grid-template-columns", "subgrid [a] repeat(auto-fill, [c] 
 test_computed_value("grid-template-columns", "subgrid [a b] repeat(auto-fill, [c] [d e]) [g]");
 test_computed_value("grid-template-columns", "subgrid [a] [b] repeat(auto-fill, [c] [d e]) [g h]");
 test_computed_value("grid-template-columns", "subgrid [a] [b] repeat(auto-fill, [c] [d e])");
-
+test_computed_value("grid-template-columns", "subgrid [a] repeat(2, [c] [d e])", "subgrid [a] [c] [d e] [c] [d e]");
+test_computed_value("grid-template-columns", "subgrid repeat(1, [])", "subgrid []");
+test_computed_value("grid-template-columns", "subgrid repeat(2, [])", "subgrid [] []");
+test_computed_value("grid-template-columns", "subgrid repeat(1, [a])", "subgrid [a]");
+test_computed_value("grid-template-columns", "subgrid repeat(2, [a])", "subgrid [a] [a]");
+test_computed_value("grid-template-columns", "subgrid repeat(1, [a b])", "subgrid [a b]");
+test_computed_value("grid-template-columns", "subgrid repeat(2, [a b])", "subgrid [a b] [a b]");
+test_computed_value("grid-template-columns", "subgrid repeat(1, [a] [b])", "subgrid [a] [b]");
+test_computed_value("grid-template-columns", "subgrid repeat(2, [a] [b])", "subgrid [a] [b] [a] [b]");
+test_computed_value("grid-template-columns", "subgrid [a] repeat(2, [b])", "subgrid [a] [b] [b]");
+test_computed_value("grid-template-columns", "subgrid repeat(2, [a]) [b]", "subgrid [a] [a] [b]");
+test_computed_value("grid-template-columns", "subgrid [a] repeat(2, [b] [c d]) [e]", "subgrid [a] [b] [c d] [b] [c d] [e]");
+test_computed_value("grid-template-columns", "subgrid repeat(2, [a b]) repeat(auto-fill, [c] [d e])", "subgrid [a b] [a b] repeat(auto-fill, [c] [d e])");
+test_computed_value("grid-template-columns", "subgrid repeat(auto-fill, [a] [b c]) repeat(2, [d e]) ", "subgrid repeat(auto-fill, [a] [b c]) [d e] [d e]");
+test_computed_value("grid-template-columns", "subgrid repeat(2, [a b]) repeat(auto-fill, [c] [d e]) repeat(2, [f g]) ", "subgrid [a b] [a b] repeat(auto-fill, [c] [d e]) [f g] [f g]");
 </script>
