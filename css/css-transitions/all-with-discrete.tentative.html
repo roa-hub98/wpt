@@ -32,9 +32,15 @@ promise_test(async () => {
   target1.addEventListener('transitionstart', () => {
     transitionstartFired = true;
   });
+
   await new Promise(resolve => requestAnimationFrame(resolve));
+  await new Promise(resolve => requestAnimationFrame(resolve));
+
   target1.classList.add('animated');
+
   await new Promise(resolve => requestAnimationFrame(resolve));
+  await new Promise(resolve => requestAnimationFrame(resolve));
+
   assert_true(transitionstartFired);
 }, 'all with an explicit discrete property should animate.');
 
@@ -43,9 +49,15 @@ promise_test(async () => {
   target2.addEventListener('transitionstart', () => {
     transitionstartFired = true;
   });
+
   await new Promise(resolve => requestAnimationFrame(resolve));
+  await new Promise(resolve => requestAnimationFrame(resolve));
+
   target2.classList.add('animated');
+
   await new Promise(resolve => requestAnimationFrame(resolve));
+  await new Promise(resolve => requestAnimationFrame(resolve));
+
   assert_false(transitionstartFired);
 }, 'all without an explicit discrete property should not animate.');
 </script>
